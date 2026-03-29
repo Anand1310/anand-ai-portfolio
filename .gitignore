@@ -5,13 +5,16 @@
 /tmp
 /out-tsc
 /bazel-out
+.angular/
+.angular/cache
 
 # ==================================
 # Node.js dependencies & logs
 # ==================================
 /node_modules
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-error.log*
+yarn-debug.log*
 
 # ==================================
 # Python virtual environment
@@ -19,11 +22,18 @@ yarn-error.log
 /venv/
 ENV/
 env/
+__pycache__/
+*.pyc
+
+# ==================================
+# Environment variables (IMPORTANT)
+# ==================================
+.env
+.env.local
 
 # ==================================
 # IDEs / Editors
 # ==================================
-# JetBrains IDEs
 .idea/
 .project
 .classpath
@@ -31,28 +41,18 @@ env/
 .settings/
 *.sublime-workspace
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/mcp.json
-.history/*
-
-# Cloud9
-.c9/
+# VS Code (ignore everything)
+.vscode/
 
 # ==================================
 # Miscellaneous
 # ==================================
-/.angular/cache
 .sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
+connect.lock
+coverage/
+libpeerconnection.log
 testem.log
-/typings
+typings/
 __screenshots__/
 
 # ==================================
