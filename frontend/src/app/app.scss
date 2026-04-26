@@ -1,6 +1,7 @@
 section {
-  height: 100vh;
-  padding: 60px;
+  min-height: 100vh;
+  height: auto;
+  padding: clamp(20px, 5vw, 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,14 +15,33 @@ section > * {
 
 .section-title {
   margin-bottom: var(--space-md);
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  text-align: center;
 }
 
 .footer {
   margin-top: var(--space-lg);
+  text-align: center;
 }
 
 .experience-container,
 .skills-container,
 .projects-container {
   margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 30px 16px;
+  }
+
+  .section-title {
+    margin-bottom: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 20px 12px;
+  }
 }

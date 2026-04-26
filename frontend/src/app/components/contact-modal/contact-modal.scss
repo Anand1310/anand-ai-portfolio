@@ -9,7 +9,6 @@
   }
 }
 
-/* Backdrop */
 .backdrop {
   position: fixed;
   inset: 0;
@@ -18,31 +17,23 @@
   z-index: 50;
 }
 
-/* Modal */
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  width: 420px;
-  max-width: 92%;
-  padding: 24px;
-
+  width: clamp(280px, 90vw, 420px);
+  padding: clamp(16px, 3vw, 24px);
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
-
   backdrop-filter: blur(18px);
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
-
   color: var(--text);
   z-index: 100;
-
   animation: pop 0.2s ease-out;
 }
 
-/* Header */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -52,26 +43,22 @@
 
 .modal-header h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 600;
   color: var(--text);
 }
 
-/* Close button */
 .close-button {
   width: 34px;
   height: 34px;
   border-radius: 8px;
-
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
-
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: all 0.2s ease;
 }
 
@@ -80,14 +67,12 @@
   transform: scale(1.05);
 }
 
-/* Subtitle */
 .subtitle {
   margin: 0 0 16px;
-  font-size: 13px;
+  font-size: clamp(12px, 1.2vw, 13px);
   color: var(--text-muted);
 }
 
-/* Quick actions */
 .quick-actions {
   display: flex;
   flex-direction: column;
@@ -99,12 +84,10 @@
   text-decoration: none;
   padding: 10px 12px;
   border-radius: 10px;
-  font-size: 14px;
-
+  font-size: clamp(13px, 1.2vw, 14px);
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--text);
-
   transition: all 0.2s ease;
 }
 
@@ -113,7 +96,6 @@
   border-color: var(--primary);
 }
 
-/* Category hover accents */
 .action.email:hover {
   border-color: #22c55e;
 }
@@ -126,27 +108,23 @@
   border-color: #a855f7;
 }
 
-/* Form */
 .form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Inputs */
 input,
 textarea {
   padding: 10px 12px;
   border-radius: 10px;
-
   border: 1px solid var(--border);
   background: var(--card);
-
   color: var(--text);
   outline: none;
-  font-size: 13px;
-
+  font-size: clamp(13px, 1.2vw, 14px);
   transition: all 0.2s ease;
+  width: 100%;
 }
 
 input:focus,
@@ -160,24 +138,27 @@ textarea {
   resize: none;
 }
 
-/* Button */
 button {
   margin-top: 6px;
   padding: 10px 12px;
   border-radius: 10px;
-
   border: none;
   background: var(--primary);
   color: #fff;
-
   font-weight: 500;
   cursor: pointer;
-
   transition: all 0.2s ease;
+  width: 100%;
 }
 
 button:hover {
   background: var(--primary-hover);
   transform: translateY(-1px);
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 92vw;
+  }
 }

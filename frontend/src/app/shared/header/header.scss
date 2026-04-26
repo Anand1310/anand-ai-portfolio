@@ -6,12 +6,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 clamp(16px, 4vw, 40px);
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   z-index: 100;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 body {
@@ -20,7 +19,7 @@ body {
 
 .logo {
   font-weight: 600;
-  font-size: 18px;
+  font-size: clamp(16px, 2vw, 18px);
   color: var(--text);
 }
 
@@ -28,14 +27,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
+  gap: clamp(10px, 2vw, 20px);
   flex-wrap: nowrap;
   min-width: 0;
 }
 
 .nav {
   display: flex;
-  gap: 24px;
+  gap: clamp(12px, 2vw, 24px);
   flex-shrink: 1;
   white-space: nowrap;
 }
@@ -43,8 +42,9 @@ body {
 .nav a {
   text-decoration: none;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: clamp(12px, 1.2vw, 14px);
   transition: 0.2s;
+  position: relative;
 }
 
 .nav a:hover {
@@ -58,6 +58,7 @@ body {
   background: var(--primary);
   transform: scaleX(0);
   transition: transform 0.2s ease;
+  transform-origin: left;
 }
 
 .nav a:hover::after {
@@ -82,9 +83,37 @@ body {
   justify-content: center;
   min-width: 40px;
   height: 36px;
+  transition: border-color 0.2s ease;
 }
 
 .theme-toggle:hover {
   border-color: var(--primary);
 }
 
+@media (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
+
+  body {
+    padding-top: 60px;
+  }
+
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 56px;
+  }
+
+  body {
+    padding-top: 56px;
+  }
+
+  .header-right {
+    gap: 10px;
+  }
+}

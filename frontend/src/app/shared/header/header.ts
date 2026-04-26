@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './header.scss',
 })
 export class Header {
-  isLight = false;
+  isLight = true;
 
   toggleTheme() {
     this.isLight = !this.isLight;
