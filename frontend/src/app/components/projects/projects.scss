@@ -1,0 +1,11 @@
+.project-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: border 0.2s ease;
+
+  &:hover {
+    border: 1px solid var(--primary);
+  }
+}

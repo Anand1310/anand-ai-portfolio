@@ -20,6 +20,8 @@ yarn-debug.log*
 # Python virtual environment
 # ==================================
 /venv/
+venv/
+/venv
 ENV/
 env/
 __pycache__/

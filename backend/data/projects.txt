@@ -1,0 +1,5 @@
+Built a LangGraph-based AI agent with tool calling and memory.
+
+Implemented a RAG system combining PDF, website, and database search.
+
+Developed a full-stack AI assistant using Angular and FastAPI.

@@ -1,10 +1,22 @@
 <section class="chat">
   <div class="container">
     <h2>Ask Me Anything</h2>
-    <p>This AI assistant can answer questions about my experience and projects.</p>
-    <div class="chat-box">
-      <input placeholder="Ask something..." />
-      <button>Send</button>
+    <div class="chat-window">
+      <div class="messages" #chatContainer>
+        <div *ngFor="let msg of messages; trackBy: trackByFn" class="message" [ngClass]="msg.sender">
+          {{ msg.text }}
+        </div>
+        <div *ngIf="loading" class="message bot typing">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div *ngIf="messages.length === 0" class="empty">
+        Ask me about my projects, experience, or skills 👋
+      </div>
+      <div class="input-box">
+        <input [(ngModel)]="userInput" [disabled]="loading" placeholder="Ask about me..." (keyup.enter)="sendMessage()" />
+        <button (click)="sendMessage()" [disabled]="loading">Send</button>
+      </div>
     </div>
   </div>
 </section>
