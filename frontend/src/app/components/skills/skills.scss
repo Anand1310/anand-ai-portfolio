@@ -1,5 +1,6 @@
 .skills-container {
   width: 100%;
+  margin: 0 auto;
 }
 
 .section-title {
@@ -9,16 +10,18 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
 }
 
 .card {
-  background: #020617;
-  border: 1px solid #1e293b;
+  background: var(--surface);
+  border: 1px solid var(--border);
   padding: 20px;
   border-radius: 12px;
   transition: 0.3s;
+  height: 100%;
 }
 
 .card:hover {
@@ -28,19 +31,6 @@
 
 .card h3 {
   margin-bottom: 16px;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag {
-  background: #1e293b;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 13px;
 }
 
 .skill-item {

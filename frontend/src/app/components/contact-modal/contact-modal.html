@@ -1,9 +1,28 @@
 <div class="backdrop" (click)="close.emit()"></div>
 <div class="modal">
-  <h3>Contact Me</h3>
-  <input placeholder="Your Name" />
-  <input placeholder="Company" />
-  <input placeholder="Email" />
-  <textarea placeholder="Message"></textarea>
-  <button>Send</button>
+  <div class="modal-header">
+    <h3>Let’s Connect</h3>
+    <button class="close-button" (click)="close.emit()">✕</button>
+  </div>
+  <p class="subtitle">
+    Feel free to reach out for opportunities or collaborations
+  </p>
+  <div class="quick-actions">
+    <a href="mailto:your@email.com" class="action email">
+      📧 Email Me
+    </a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="action linkedin">
+      💼 LinkedIn
+    </a>
+    <a href="assets/resume.pdf" download class="action resume">
+      📄 Download Resume
+    </a>
+  </div>
+  <div class="form">
+    <input placeholder="Your Name" />
+    <input placeholder="Company (optional)" />
+    <input placeholder="Email" />
+    <textarea placeholder="Message"></textarea>
+    <button>Send Message</button>
+  </div>
 </div>

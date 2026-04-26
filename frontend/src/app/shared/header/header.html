@@ -1,9 +1,20 @@
 <header class="header">
-  <div class="logo">Anu Anand</div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Tech Stack</a>
-    <a href="#projects">Projects</a>
-  </nav>
+  <div class="header-left">
+    <div class="logo">
+      Anu Anand
+    </div>
+  </div>
+  <div class="header-right">
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Tech Stack</a>
+      <a href="#projects">Projects</a>
+    </nav>
+    <div class="actions">
+      <button class="theme-toggle" (click)="toggleTheme()">
+        {{ isLight ? '🌙' : '☀️' }}
+      </button>
+    </div>
+  </div>
 </header>

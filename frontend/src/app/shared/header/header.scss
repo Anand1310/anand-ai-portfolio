@@ -2,9 +2,94 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: #020617;
+  height: 64px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 16px 40px;
+  padding: 0 40px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
   z-index: 100;
+  box-sizing: border-box;
+  overflow: hidden;
 }
+
+body {
+  padding-top: 64px;
+}
+
+.header {
+  backdrop-filter: blur(8px);
+  background: rgba(2, 6, 23, 0.8);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  flex-shrink: 1;
+  white-space: nowrap;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.nav a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 36px;
+}
+
+.theme-toggle:hover {
+  border-color: var(--primary);
+}
+

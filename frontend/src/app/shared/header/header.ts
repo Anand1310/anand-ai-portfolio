@@ -6,4 +6,15 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
-export class Header {}
+export class Header {
+  isLight = false;
+
+  toggleTheme() {
+    this.isLight = !this.isLight;
+    if (this.isLight) {
+      document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
+    }
+  }
+}

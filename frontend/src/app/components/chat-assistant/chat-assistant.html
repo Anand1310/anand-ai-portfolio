@@ -1,6 +1,6 @@
 <section class="chat">
   <div class="container">
-    <h2>Ask Me Anything</h2>
+    <h2 class="chat-header">Ask Me Anything</h2>
     <div class="chat-window">
       <div class="messages" #chatContainer>
         <div *ngFor="let msg of messages; trackBy: trackByFn" class="message" [ngClass]="msg.sender">
