@@ -1,0 +1,60 @@
+.experience-container {
+  width: 100%;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #334155;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.dot {
+  position: absolute;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #2563eb;
+  border-radius: 50%;
+}
+
+.content {
+  margin-left: 40px;
+  background: #020617;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #1e293b;
+}
+
+.duration {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+ul {
+  margin-top: 12px;
+  padding-left: 18px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: #cbd5f5;
+}

@@ -1,1 +1,19 @@
-<p>experience works!</p>
+<div class="experience-container">
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+    @for (exp of experienceList; track exp) {
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="content">
+          <h3>{{ exp.role }} — {{ exp.company }}</h3>
+          <span class="duration">{{ exp.duration }}</span>
+          <ul>
+            @for (point of exp.points; track point) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+</div>

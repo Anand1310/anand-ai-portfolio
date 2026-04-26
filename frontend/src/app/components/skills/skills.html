@@ -1,13 +1,20 @@
-<section class="skills">
-  <div class="container">
-    <h2>Skills</h2>
-    <div class="grid">
-      <div class="card">Python</div>
-      <div class="card">FastAPI</div>
-      <div class="card">Angular</div>
-      <div class="card">LangGraph</div>
-      <div class="card">RAG Systems</div>
-      <div class="card">LLM Integration</div>
-    </div>
+<div class="skills-container">
+  <h2 class="section-title">Tech Stack</h2>
+  <div class="grid">
+    @for (skill of skills; track skill.category) {
+      <div class="card">
+        <h3>{{ skill.category }}</h3>
+        <div class="items">
+          @for (item of skill.items; track item.name) {
+            <div class="skill-item">
+              <div class="top">
+                <span class="icon">{{ item.icon }}</span>
+                <span class="name">{{ item.name }}</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
   </div>
-</section>
+</div>

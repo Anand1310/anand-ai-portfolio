@@ -1,15 +1,29 @@
-<div class="project-card">
-  <h3>AI Agent System</h3>
-  <p>
-    Built a LangGraph-based agent capable of tool calling and memory,
-    integrated with RAG pipeline for contextual responses.
-  </p>
-</div>
-
-<div class="project-card">
-  <h3>RAG Pipeline</h3>
-  <p>
-    Implemented multi-source retrieval (PDF, web, database) using embeddings
-    and semantic search for accurate knowledge retrieval.
-  </p>
+<div class="projects-container">
+  <h2 class="section-title">Projects</h2>
+  <div class="grid">
+    @for (project of projects; track project.title) {
+      <div class="card">
+        <h3>{{ project.title }}</h3>
+        <p class="desc">{{ project.description }}</p>
+        <ul class="highlights">
+          @for (point of project.highlights; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+        <div class="tech">
+          @for (t of project.tech; track t) {
+            <span>{{ t }}</span>
+          }
+        </div>
+        <div class="actions">
+          @if (project.github) {
+            <a [href]="project.github" target="_blank">GitHub</a>
+          }
+          @if (project.live) {
+            <a [href]="project.live" target="_blank">Live</a>
+          }
+        </div>
+      </div>
+    }
+  </div>
 </div>

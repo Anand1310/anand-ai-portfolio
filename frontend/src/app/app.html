@@ -22,5 +22,12 @@
 <app-footer></app-footer>
 
 <!-- Overlays -->
-<app-chat-overlay *ngIf="showChat" (close)="closeChat()"></app-chat-overlay>
-<app-contact-modal *ngIf="showContact" (close)="closeContact()"></app-contact-modal>
+<app-chat-overlay 
+  *ngIf="showChat" 
+  (close)="closeChat()">
+</app-chat-overlay>
+
+<app-contact-modal 
+  *ngIf="showContact" 
+  (close)="closeContact()">
+</app-contact-modal>

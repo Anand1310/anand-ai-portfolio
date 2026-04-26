@@ -4,11 +4,16 @@ html {
 
 /* Colors */
 :root {
-  --primary: #2563eb;
-  --bg: #0f172a;
+  --bg: #020617;
+  --surface: #0f172a;
+  --card: #020617;
+  --border: #1e293b;
+
   --text: #e2e8f0;
-  --subtext: #94a3b8;
-  --card: #1e293b;
+  --text-muted: #94a3b8;
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
 }
 
 /* Global styles */

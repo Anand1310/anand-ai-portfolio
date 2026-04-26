@@ -1,11 +1,54 @@
-.project-card {
-  background: var(--card);
+.projects-container {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #020617;
+  border: 1px solid #1e293b;
   padding: 20px;
   border-radius: 12px;
-  margin-bottom: 20px;
-  transition: border 0.2s ease;
+  transition: 0.3s;
+}
 
-  &:hover {
-    border: 1px solid var(--primary);
-  }
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #2563eb;
+}
+
+.desc {
+  margin: 10px 0;
+  color: #94a3b8;
+}
+
+.highlights {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+
+.tech {
+  margin-top: 12px;
+}
+
+.tech span {
+  background: #1e293b;
+  padding: 5px 8px;
+  border-radius: 6px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.actions {
+  margin-top: 15px;
+}
+
+.actions a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #2563eb;
 }

@@ -8,12 +8,14 @@ import { ContactModal } from './components/contact-modal/contact-modal';
 import { Experience } from './components/experience/experience';
 import { Header } from './shared/header/header';
 import { Footer } from './shared/footer/footer';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     Header,
     About,
     Experience,

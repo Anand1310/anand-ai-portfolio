@@ -1,10 +1,9 @@
 <div class="overlay">
-
-  <div class="header">
+  <div class="overlay-header">
     <h3>AI Assistant</h3>
     <button (click)="close.emit()">✕</button>
   </div>
-
-  <app-chat-assistant></app-chat-assistant>
-
+  <div class="overlay-body">
+    <app-chat-assistant></app-chat-assistant>
+  </div>
 </div>
