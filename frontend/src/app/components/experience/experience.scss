@@ -5,6 +5,7 @@
 .section-title {
   font-size: 32px;
   margin-bottom: 40px;
+  color: var(--text);
 }
 
 .timeline {
@@ -19,7 +20,7 @@
   top: 0;
   width: 2px;
   height: 100%;
-  background: #334155;
+  background: var(--timeline);
 }
 
 .timeline-item {
@@ -32,21 +33,23 @@
   left: 2px;
   width: 16px;
   height: 16px;
-  background: #2563eb;
+  background: var(--primary);
   border-radius: 50%;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.35);
 }
 
 .content {
   margin-left: 40px;
-  background: #020617;
+  background: var(--card);
   padding: 20px;
   border-radius: 12px;
-  border: 1px solid #1e293b;
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
 .duration {
   font-size: 13px;
-  color: #94a3b8;
+  color: var(--text-muted);
 }
 
 ul {
@@ -56,5 +59,5 @@ ul {
 
 li {
   margin-bottom: 8px;
-  color: #cbd5f5;
+  color: var(--text-muted);
 }

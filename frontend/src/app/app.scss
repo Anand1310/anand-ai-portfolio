@@ -11,3 +11,17 @@ section > * {
   max-width: 1100px;
   width: 100%;
 }
+
+.section-title {
+  margin-bottom: var(--space-md);
+}
+
+.footer {
+  margin-top: var(--space-lg);
+}
+
+.experience-container,
+.skills-container,
+.projects-container {
+  margin-bottom: var(--space-xl);
+}
