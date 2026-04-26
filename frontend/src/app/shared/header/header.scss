@@ -1,0 +1,10 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #020617;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 40px;
+  z-index: 100;
+}

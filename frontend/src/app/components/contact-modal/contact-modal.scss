@@ -1,0 +1,11 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e293b;
+  padding: 24px;
+  border-radius: 12px;
+  width: 400px;
+  z-index: 200;
+}

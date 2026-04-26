@@ -1,0 +1,14 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hero-left {
+  max-width: 500px;
+}
+
+.hero-right img {
+  width: 280px;
+  border-radius: 20px;
+}

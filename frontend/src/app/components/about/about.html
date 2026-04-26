@@ -1,13 +1,21 @@
-<section class="about">
-  <div class="container">
-    <h2>About Me</h2>
+<div class="hero">
+
+  <div class="hero-left">
+    <h1>Anu Anand</h1>
+    <h2>AI Engineer | Agentic Systems | Full Stack Developer</h2>
+
     <p>
-      I'm a Software Engineer with 2.8 years of experience at GEP,
-      specializing in backend systems and AI-powered applications.
+      I build production-ready AI systems using RAG, agents, and full-stack architecture.
     </p>
-    <p>
-      I have built production-ready AI systems including RAG pipelines,
-      agent-based workflows, and conversational assistants.
-    </p>
+
+    <div class="actions">
+      <button (click)="openChat.emit()">Chat with my AI Assistant</button>
+      <button (click)="openContact.emit()">Contact Me</button>
+    </div>
   </div>
-</section>
+
+  <div class="hero-right">
+    <img src="assets/profile.jpg" alt="Anu Anand" />
+  </div>
+
+</div>

@@ -1,21 +1,26 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Hero } from './components/hero/hero';
 import { About } from './components/about/about';
 import { Skills } from './components/skills/skills';
 import { Projects } from './components/projects/projects';
-import { ChatAssistant } from './components/chat-assistant/chat-assistant';
-import { Footer } from './components/footer/footer';
+import { ChatOverlay } from './components/chat-overlay/chat-overlay';
+import { ContactModal } from './components/contact-modal/contact-modal';
+import { Experience } from './components/experience/experience';
+import { Header } from './shared/header/header';
+import { Footer } from './shared/footer/footer';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    Hero,
+    Header,
     About,
+    Experience,
     Skills,
     Projects,
-    ChatAssistant,
+    ChatOverlay,
+    ContactModal,
     Footer
   ],
   templateUrl: './app.html',
@@ -23,4 +28,22 @@ import { Footer } from './components/footer/footer';
 })
 export class App {
   protected readonly title = signal('myportfolio');
+  showChat = false;
+  showContact = false;
+
+  openChat() {
+    this.showChat = true;
+  }
+
+  closeChat() {
+    this.showChat = false;
+  }
+
+  openContact() {
+    this.showContact = true;
+  }
+
+  closeContact() {
+    this.showContact = false;
+  }
 }

@@ -1,6 +1,26 @@
-<app-hero></app-hero>
-<app-about></app-about>
-<app-skills></app-skills>
-<app-projects></app-projects>
-<app-chat-assistant></app-chat-assistant>
+<app-header></app-header>
+
+<section id="about">
+  <app-about 
+    (openChat)="openChat()" 
+    (openContact)="openContact()">
+  </app-about>
+</section>
+
+<section id="experience">
+  <app-experience></app-experience>
+</section>
+
+<section id="skills">
+  <app-skills></app-skills>
+</section>
+
+<section id="projects">
+  <app-projects></app-projects>
+</section>
+
 <app-footer></app-footer>
+
+<!-- Overlays -->
+<app-chat-overlay *ngIf="showChat" (close)="closeChat()"></app-chat-overlay>
+<app-contact-modal *ngIf="showContact" (close)="closeContact()"></app-contact-modal>
