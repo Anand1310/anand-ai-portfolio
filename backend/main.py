@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
 from rag import get_relevant_docs
 from openai import OpenAI
+import json
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -27,6 +28,11 @@ chat_memory = {}
 @app.get("/")
 def root():
     return {"message": "AI Portfolio Backend Running"}
+
+@app.get("/profile")
+def get_profile():
+    with open("data/profile.json") as f:
+        return json.load(f)
 
 @app.post("/chat")
 def chat(req: ChatRequest):

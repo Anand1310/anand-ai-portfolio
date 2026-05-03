@@ -1,0 +1,102 @@
+{
+  "about": {
+    "name": "Anu Anand",
+    "title": "Software Engineer | AI & Full-Stack Developer",
+    "summary": "AI Engineer with ~3 years of experience building scalable, intelligent systems using LLMs, RAG, and full-stack technologies.",
+    "highlights": [
+      "Specialized in Agentic AI systems and LLM-based workflows",
+      "Built automation systems reducing manual effort by up to 70%",
+      "Experienced in full-stack development (Angular, Python, .NET)"
+    ]
+  },
+  "experience": [
+    {
+      "company": "GEP Worldwide",
+      "role": "Software Engineer",
+      "duration": "2022 - Present",
+      "description": [
+        "Built AI-driven automation for supplier onboarding reducing manual effort by ~70%",
+        "Developed agentic AI workflows using LLM integrations",
+        "Designed scalable backend APIs and frontend interfaces",
+        "Led AI feature releases improving system adoption and reliability"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "AI Portfolio Assistant",
+      "description": "AI-powered portfolio with RAG-based assistant and session memory",
+      "highlights": [
+        "Built using Angular + FastAPI",
+        "Implemented RAG pipeline using vector search",
+        "Enabled contextual Q&A about experience and projects",
+        "Designed structured knowledge base for accurate retrieval"
+      ],
+      "tech": ["Angular", "FastAPI", "LangChain", "ChromaDB"],
+      "github": "",
+      "live": ""
+    }
+  ],
+  "skills": [
+    {
+      "category": "AI/ML",
+      "items": [
+        { "name": "RAG", "type": "brain" },
+        { "name": "LangChain", "type": "link" },
+        { "name": "LangGraph", "type": "graph" },
+        { "name": "LLMs", "type": "chatBubble" }
+      ]
+    },
+    {
+      "category": "Frontend",
+      "items": [
+        { "name": "Angular", "type": "angular" },
+        { "name": "TypeScript", "type": "typescript" },
+        { "name": "HTML", "type": "html5" },
+        { "name": "CSS", "type": "css3" }
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        { "name": "Python", "type": "python" },
+        { "name": "FastAPI", "type": "fastapi" },
+        { "name": ".NET", "type": "dotnet" }
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Prompt Engineering with LangChain",
+      "link": "https://drive.google.com/file/d/1mZcrvhUPrbwj8CgaiTXPeUKlggskly0V/view?usp=drive_link",
+      "date": "2025"
+    },
+    {
+      "name": "Agentic AI for Developers",
+      "link": "https://drive.google.com/file/d/1mGbbYZeleIOsBPgf3oonO4F308M2KA8a/view?usp=drive_link",
+      "date": "2025"
+    },
+    {
+      "name": "Transforming Business with AI Agents",
+      "link": "https://drive.google.com/file/d/1T194RDj6d1k9PPOaKphsWYyUaFula_1t/view?usp=drive_link",
+      "date": "2025"
+    },
+    {
+      "name": "Level up LLM applications development with LangChain and OpenAI",
+      "link": "https://drive.google.com/file/d/1xImJQcbjcAVM48_dy3NaDhOvnmKe7eyA/view?usp=drive_link",
+      "date": "2025"
+    }
+  ],
+  "achievements": [
+    {
+        "name": "Certificate of Appreciation - GEP",
+        "link": "https://drive.google.com/file/d/16P5-a_ea1J6wHTc5zLVBqOG068tXNkpt/view?usp=drive_link",
+        "date": "2025"
+    },
+    {
+        "name": "Earned Elite + Silver in NLP Course (NPTEL)",
+        "link": "https://drive.google.com/file/d/1ilVQTzLhQ9p5FaGQGCn__4aj719Onw_6/view?usp=drive_link",
+        "date": "2021"
+    }
+  ]
+}

@@ -1,12 +1,22 @@
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader, JSONLoader
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
+# from dotenv import load_dotenv
+
+# load_dotenv()
 
 def load_documents():
     docs = []
 
     pdf_loader = PyPDFLoader("data\Anand_Resume.pdf")
     docs.extend(pdf_loader.load())
+
+    json_loader = JSONLoader(
+        file_path="data/profile.json",
+        jq_schema=".",
+        text_content=False
+    )
+    docs.extend(json_loader.load())
 
     text_loader = TextLoader("data\projects.txt")
     docs.extend(text_loader.load())
@@ -42,3 +52,7 @@ def debug_db():
     for i, doc in enumerate(docs):
         print(f"\n--- Doc {i} ---")
         print(doc.page_content[:300])
+
+# load_documents()
+# create_vector_store()
+# debug_db()

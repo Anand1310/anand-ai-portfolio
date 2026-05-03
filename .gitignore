@@ -2,11 +2,13 @@
 # Angular / TypeScript build output
 # ==================================
 /dist
+frontend/dist/
 /tmp
 /out-tsc
 /bazel-out
 .angular/
 .angular/cache
+
 
 # ==================================
 # Node.js dependencies & logs
@@ -56,6 +58,7 @@ libpeerconnection.log
 testem.log
 typings/
 __screenshots__/
+backend/chroma_db/
 
 # ==================================
 # System files
