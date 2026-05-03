@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ExperienceItem  } from '../../shared/models/experience.model';
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-experience',
@@ -8,29 +8,16 @@ import { ExperienceItem  } from '../../shared/models/experience.model';
   templateUrl: './experience.html',
   styleUrl: './experience.scss',
 })
-export class Experience {
-  experienceList: ExperienceItem[] = [
-    {
-      role: 'Software Engineer',
-      company: 'GEP Worldwide',
-      duration: '2022 – Present',
-      points: [
-        'Built AI-driven automation for supplier onboarding → reduced manual effort by ~70%',
-        'Developed agentic AI workflows using LLM integrations and backend APIs',
-        'Designed scalable backend services and frontend interfaces for enterprise applications',
-        'Led AI feature releases, improving adoption and system reliability'
-      ]
-    },
-    {
-      role: 'Software Engineer - Intern',
-      company: 'GEP Worldwide',
-      duration: '2019 – 2020',
-      points: [
-        'Built AI-driven automation for supplier onboarding → reduced manual effort by ~70%',
-        'Developed agentic AI workflows using LLM integrations and backend APIs',
-        'Designed scalable backend services and frontend interfaces for enterprise applications',
-        'Led AI feature releases, improving adoption and system reliability'
-      ]
-    }
-  ];
+export class Experience implements OnInit {
+
+  experienceList: any;
+
+  constructor(private profileService: ProfileService) {}
+  
+  ngOnInit() {
+    this.profileService.getProfile()
+      .subscribe(data => {
+        this.experienceList = data.experience;
+      });
+  }
 }

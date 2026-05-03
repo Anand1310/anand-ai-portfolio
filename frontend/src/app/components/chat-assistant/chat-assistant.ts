@@ -30,7 +30,7 @@ export class ChatAssistant {
   ) { }
 
   sendMessage() {
-    if (!this.userInput.trim()) return;
+    if (!this.userInput.trim() || this.loading) return;
 
     const message = this.userInput;
 
@@ -42,25 +42,32 @@ export class ChatAssistant {
     .pipe(
       finalize(() => {
         this.loading = false;
+        this.cdr.detectChanges();
       })
     )
     .subscribe({
-      next: (res) => {
-        this.messages = [
-          ...this.messages,
-          { text: res.response, sender: 'bot' }
-        ];
+      next: (res: any) => {
+        if (!res || !res.response) {
+          this.messages.push({
+            text: "I couldn't understand that. Try rephrasing.",
+            sender: 'bot'
+          });
+        } else {
+          this.messages.push({
+            text: res.response,
+            sender: 'bot'
+          });
+        }
         this.loading = false;
-        this.scrollToBottom();
         this.cdr.detectChanges();
       },
-      error: () => {
+      error: (err) => {
+        console.error(err);
         this.messages.push({
-          text: "Something went wrong. Try again.",
+          text: "Something went wrong. Please try again later.",
           sender: 'bot'
         });
         this.loading = false;
-        this.scrollToBottom();
         this.cdr.detectChanges();
       }
     });

@@ -1,0 +1,35 @@
+<div class="achievements-certifications-container">
+  <!-- Achievements Section -->
+   @if (achievements.length > 0) {
+    <div class="section">
+        <h2>🏆 Achievements</h2>
+        <div class="card-grid">
+            @for (item of achievements; track item) {
+                <div class="card" (click)="openLink(item.link)">
+                    <div class="card-content">
+                        <div class="card-title">{{ item.name }}</div>
+                        <div class="card-date">{{ item.date }}</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+   }
+
+  <!-- Certifications Section -->
+   @if (certifications.length > 0) {
+    <div class="section">
+        <h2>📜 Certifications</h2>
+        <div class="card-grid">
+            @for (item of certifications; track item) {
+                <div class="card" (click)="openLink(item.link)">
+                    <div class="card-content">
+                        <div class="card-title">{{ item.name }}</div>
+                        <div class="card-date">{{ item.date }}</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    }
+</div>

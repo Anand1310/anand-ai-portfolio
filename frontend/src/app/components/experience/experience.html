@@ -8,7 +8,7 @@
           <h3>{{ exp.role }} — {{ exp.company }}</h3>
           <span class="duration">{{ exp.duration }}</span>
           <ul>
-            @for (point of exp.points; track point) {
+            @for (point of exp.description; track point) {
               <li>{{ point }}</li>
             }
           </ul>

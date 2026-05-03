@@ -1,33 +1,47 @@
 <app-header></app-header>
 
-<section id="about">
-  <app-about 
-    (openChat)="openChat()" 
-    (openContact)="openContact()">
-  </app-about>
-</section>
+@if (profileLoading) {
+  <p>Loading profile...</p>
+}
 
-<section id="experience">
-  <app-experience></app-experience>
-</section>
+@if (profileLoadFailed) {
+  <p>Failed to load profile.</p>
+}
 
-<section id="skills">
-  <app-skills></app-skills>
-</section>
+@if (!profileLoading && !profileLoadFailed) {
+  <section id="about">
+    <app-about 
+      (openChat)="openChat()" 
+      (openContact)="openContact()">
+    </app-about>
+  </section>
 
-<section id="projects">
-  <app-projects></app-projects>
-</section>
+  <section id="experience">
+    <app-experience></app-experience>
+  </section>
 
-<app-footer></app-footer>
+  <section id="projects">
+    <app-projects></app-projects>
+  </section>
 
-<!-- Overlays -->
-<app-chat-overlay 
-  *ngIf="showChat" 
-  (close)="closeChat()">
-</app-chat-overlay>
+  <section id="achievements-certifications">
+    <app-achievements-certification></app-achievements-certification>
+  </section>
 
-<app-contact-modal 
-  *ngIf="showContact" 
-  (close)="closeContact()">
-</app-contact-modal>
+  <section id="skills">
+    <app-skills></app-skills>
+  </section>
+
+  <app-footer></app-footer>
+
+  <!-- Overlays -->
+  <app-chat-overlay 
+    *ngIf="showChat" 
+    (close)="closeChat()">
+  </app-chat-overlay>
+
+  <app-contact-modal 
+    *ngIf="showContact" 
+    (close)="closeContact()">
+  </app-contact-modal>
+}

@@ -1,0 +1,43 @@
+.achievements-certifications-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: clamp(20px, 3vw, 32px);
+  margin-bottom: clamp(20px, 4vw, 40px);
+  color: var(--text);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: clamp(14px, 2vw, 20px);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+  color: var(--text);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.12);
+  transform: translateY(-6px) scale(1.01);
+}
+
+.card-content {
+  color: var(--text);
+  font-size: clamp(16px, 1vw, 18px);
+}

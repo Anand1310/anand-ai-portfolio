@@ -1,13 +1,11 @@
 <div class="about-container">
   <div class="left">
-    <h1>Anu Anand Annu</h1>
+    <h1>{{about.name}}</h1>
     <h2>
-      AI Engineer • Agentic Systems • Full Stack Developer
+      {{about.title}}
     </h2>
     <p>
-      I build production-ready AI systems using RAG, multi-agent architectures,
-      and full-stack engineering. Experienced in delivering scalable solutions
-      that drive real business impact.
+      {{about.summary}}
     </p>
     <div class="buttons">
       <button class="primary" (click)="openChat.emit()">
