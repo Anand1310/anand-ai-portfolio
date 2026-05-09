@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/co
 import { ChatService } from '../../services/chat';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { marked } from 'marked';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -35,6 +36,7 @@ export class ChatAssistant {
     const message = this.userInput;
 
     this.messages.push({ text: message, sender: 'user' });
+    this.scrollToBottom();
     this.userInput = '';
     this.loading = true;
 
@@ -59,6 +61,7 @@ export class ChatAssistant {
           });
         }
         this.loading = false;
+        this.scrollToBottom();
         this.cdr.detectChanges();
       },
       error: (err) => {
@@ -68,6 +71,7 @@ export class ChatAssistant {
           sender: 'bot'
         });
         this.loading = false;
+        this.scrollToBottom();
         this.cdr.detectChanges();
       }
     });
@@ -77,10 +81,17 @@ export class ChatAssistant {
     return index;
   }
 
-  scrollToBottom() {
+  scrollToBottom(): void {
     setTimeout(() => {
-      this.chatContainer.nativeElement.scrollTop =
-        this.chatContainer.nativeElement.scrollHeight;
-    });
+      const el = this.chatContainer.nativeElement;
+      el.scrollTo({
+        top: el.scrollHeight,
+        behavior: 'smooth'
+      });
+    }, 0);
+  }
+
+  formatMessage(text: string) {
+    return marked.parse(text);
   }
 }

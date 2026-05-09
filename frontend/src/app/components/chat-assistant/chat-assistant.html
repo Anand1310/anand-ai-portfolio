@@ -3,8 +3,10 @@
     <h2 class="chat-header">Ask Me Anything</h2>
     <div class="chat-window">
       <div class="messages" #chatContainer>
-        <div *ngFor="let msg of messages; trackBy: trackByFn" class="message" [ngClass]="msg.sender">
-          {{ msg.text }}
+        <div *ngFor="let msg of messages; trackBy: trackByFn" 
+          class="message" 
+          [ngClass]="msg.sender" 
+          [innerHTML]="formatMessage(msg.text)">
         </div>
         <div *ngIf="loading" class="message bot typing">
           <span></span><span></span><span></span>
