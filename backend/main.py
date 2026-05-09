@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from rag import get_relevant_docs
+from helper import summarize_conversation
 from openai import OpenAI
 import json
 from dotenv import load_dotenv
@@ -24,6 +25,7 @@ class ChatRequest(BaseModel):
     session_id: str
 
 chat_memory = {}
+conversation_summary = ""
 
 @app.get("/")
 def root():
@@ -41,12 +43,11 @@ def get_profile():
 
 @app.post("/chat")
 def chat(req: ChatRequest):
-
     try:
         print("Chat API called, session_id:", req.session_id)
         print("User message:", req.message)
 
-        if (not req.message.strip()):
+        if not req.message.strip():
             return
 
         if req.session_id not in chat_memory:
@@ -58,24 +59,24 @@ def chat(req: ChatRequest):
 
         print("Context retrieved")
 
+        summary = conversation_summary.get(req.session_id, "")
+
         system_prompt = f"""
-            You are an AI assistant representing Anu Anand, a Software Engineer. Speak about Anu Anand in third person (“Anu Anand built…”, “He led…”). Never speak as Anu Anand.
+        You are an AI portfolio assistant representing Anu Anand.
 
-            STRICT RULES:
-            - Only answer questions related to Anu Anand
-            - Have bullets point where ever applicable.
-            - Keep answers concise (max 5 lines unless asked)
-            - Focus on IMPACT, SYSTEMS BUILT, and SKILLS
-            - Avoid generic phrases like "strong candidate", "blend of skills"
-            - Sound confident and direct
-            - No unnecessary headings
-            - No fluff
-            - Maintain focus on the user’s primary objective. If the conversation becomes diverted or off-topic, acknowledge the detour briefly and guide the interaction back to the main task.
+        RULES:
+        - Speak about Anu Anand in third person
+        - Only answer portfolio/career related questions
+        - Keep answers concise
+        - Focus on projects, impact, systems, and technical skills
+        - No fluff
+        - Use bullets when useful
 
-            Style Example:
-            - Built X using Y → achieved Z impact
+        Conversation Summary:
+        {summary}
 
-            Context: {context}
+        Relevant Context:
+        {context}
         """
 
         messages = [
@@ -98,6 +99,14 @@ def chat(req: ChatRequest):
 
         history.append({"role": "user", "content": req.message})
         history.append({"role": "assistant", "content": reply})
+        
+        if len(history) > 6:
+            summary = summarize_conversation(history)
+            conversation_summary[req.session_id] = summary
+            chat_memory[req.session_id] = history[-4:]
+            print("Conversation summarized")
+            
+        print("Summary:", conversation_summary.get(req.session_id))
 
         return { "response": reply }
     except Exception as e:

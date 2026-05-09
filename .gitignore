@@ -1,67 +1,67 @@
 # ==================================
 # Angular / TypeScript build output
 # ==================================
-/dist
-frontend/dist/
-/tmp
-/out-tsc
-/bazel-out
-.angular/
-.angular/cache
+**/dist
+**/frontend/dist/
+**/tmp
+**/out-tsc
+**/bazel-out
+**/.angular/
+**/.angular/cache
 
 
 # ==================================
 # Node.js dependencies & logs
 # ==================================
-/node_modules
-npm-debug.log*
-yarn-error.log*
-yarn-debug.log*
+**/node_modules
+**/npm-debug.log*
+**/yarn-error.log*
+**/yarn-debug.log*
 
 # ==================================
 # Python virtual environment
 # ==================================
-/venv/
-venv/
-/venv
-ENV/
-env/
-__pycache__/
-*.pyc
+**/venv/
+**/venv/
+**/venv
+**/ENV/
+**/env/
+**/__pycache__/
+**/*.pyc
 
 # ==================================
 # Environment variables (IMPORTANT)
 # ==================================
-.env
-.env.local
+**/.env
+**/.env.local
 
 # ==================================
 # IDEs / Editors
 # ==================================
-.idea/
-.project
-.classpath
-*.launch
-.settings/
-*.sublime-workspace
+**/.idea/
+**/.project
+**/.classpath
+**/*.launch
+**/.settings/
+**/*.sublime-workspace
 
 # VS Code (ignore everything)
-.vscode/
+**/.vscode/
 
 # ==================================
 # Miscellaneous
 # ==================================
-.sass-cache/
-connect.lock
-coverage/
-libpeerconnection.log
-testem.log
-typings/
-__screenshots__/
-backend/chroma_db/
+**/.sass-cache/
+**/connect.lock
+**/coverage/
+**/libpeerconnection.log
+**/testem.log
+**/typings/
+**/__screenshots__/
+**/backend/chroma_db/
 
 # ==================================
 # System files
 # ==================================
-.DS_Store
-Thumbs.db
+**/.DS_Store
+**/Thumbs.db
