@@ -13,7 +13,7 @@ client = OpenAI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # later restrict
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -57,6 +57,7 @@ def chat(req: ChatRequest):
         - Sound confident and direct
         - No unnecessary headings
         - No fluff
+        - Maintain focus on the user’s primary objective. If the conversation becomes diverted or off-topic, acknowledge the detour briefly and guide the interaction back to the main task.
 
         Style Example:
         - Built X using Y → achieved Z impact
