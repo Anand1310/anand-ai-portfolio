@@ -6,53 +6,124 @@ from langchain_openai import OpenAIEmbeddings
 # load_dotenv()
 
 def load_documents():
+
+    print("Loading documents...")
+
     docs = []
 
-    pdf_loader = PyPDFLoader("data/Anand_Resume.pdf")
-    docs.extend(pdf_loader.load())
+    try:
+        print("Loading PDF...")
+        pdf_loader = PyPDFLoader("data/Anand_Resume.pdf")
+        pdf_docs = pdf_loader.load()
+        docs.extend(pdf_docs)
+        print(f"Loaded PDF docs: {len(pdf_docs)}")
 
-    json_loader = JSONLoader(
-        file_path="data/profile.json",
-        jq_schema=".",
-        text_content=False
-    )
-    docs.extend(json_loader.load())
+    except Exception as e:
+        print("PDF LOAD ERROR:", str(e))
 
-    text_loader = TextLoader("data/projects.txt")
-    docs.extend(text_loader.load())
+    try:
+        print("Loading profile JSON...")
+        json_loader = JSONLoader(
+            file_path="data/profile.json",
+            jq_schema=".",
+            text_content=False
+        )
+
+        json_docs = json_loader.load()
+        docs.extend(json_docs)
+
+        print(f"Loaded JSON docs: {len(json_docs)}")
+
+    except Exception as e:
+        print("JSON LOAD ERROR:", str(e))
+
+    try:
+        print("Loading projects text...")
+        text_loader = TextLoader("data/projects.txt")
+
+        text_docs = text_loader.load()
+        docs.extend(text_docs)
+
+        print(f"Loaded Text docs: {len(text_docs)}")
+
+    except Exception as e:
+        print("TEXT LOAD ERROR:", str(e))
+
+    print(f"Total docs loaded: {len(docs)}")
 
     return docs
 
 
 def create_vector_store():
-    docs = load_documents()
 
-    embeddings = OpenAIEmbeddings()
+    try:
+        print("Creating vector store...")
 
-    db = Chroma.from_documents(docs, embeddings, persist_directory="./chroma_db")
+        docs = load_documents()
 
-    return db
+        embeddings = OpenAIEmbeddings()
+
+        db = Chroma.from_documents(
+            docs,
+            embeddings,
+            persist_directory="./chroma_db"
+        )
+
+        print("Vector DB created successfully")
+
+        return db
+
+    except Exception as e:
+        print("VECTOR STORE ERROR:", str(e))
+
 
 def get_relevant_docs(query):
-    embeddings = OpenAIEmbeddings()
-    db = Chroma(persist_directory="./chroma_db", embedding_function=embeddings)
 
-    results = db.similarity_search(query, k=3)
+    try:
+        print("Running similarity search...")
+        print("User Query:", query)
 
-    return "\n".join([doc.page_content for doc in results])
+        embeddings = OpenAIEmbeddings()
+
+        db = Chroma(
+            persist_directory="./chroma_db",
+            embedding_function=embeddings
+        )
+
+        print("Connected to Chroma DB")
+
+        results = db.similarity_search(query, k=3)
+
+        print(f"Retrieved docs: {len(results)}")
+
+        return "\n".join([doc.page_content for doc in results])
+
+    except Exception as e:
+        print("RETRIEVAL ERROR:", str(e))
+        raise e
+
 
 def debug_db():
-    db = Chroma(
-        persist_directory="./chroma_db",
-        embedding_function=OpenAIEmbeddings()
-    )
 
-    docs = db.similarity_search("Anu Anand", k=5)
+    try:
+        print("Debugging DB...")
 
-    for i, doc in enumerate(docs):
-        print(f"\n--- Doc {i} ---")
-        print(doc.page_content[:300])
+        db = Chroma(
+            persist_directory="./chroma_db",
+            embedding_function=OpenAIEmbeddings()
+        )
 
+        docs = db.similarity_search("Anu Anand", k=5)
+
+        print(f"Found docs: {len(docs)}")
+
+        for i, doc in enumerate(docs):
+            print(f"\n--- Doc {i} ---")
+            print(doc.page_content[:300])
+
+    except Exception as e:
+        print("DEBUG DB ERROR:", str(e))
+        
 # load_documents()
 # create_vector_store()
 # debug_db()

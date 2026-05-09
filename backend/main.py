@@ -31,60 +31,76 @@ def root():
 
 @app.get("/profile")
 def get_profile():
-    with open("data/profile.json") as f:
-        return json.load(f)
+    try:
+        with open("data/profile.json") as f:
+            print("Profile Loaded")
+            return json.load(f)
+    except Exception as e:
+        print("ERROR:", str(e))
+        return {"error": str(e)}
 
 @app.post("/chat")
 def chat(req: ChatRequest):
 
-    if (not req.message.trim()):
-        return
+    try:
+        print("Chat API called, session_id:", req.session_id)
+        print("User message:", req.message)
 
-    if req.session_id not in chat_memory:
-        chat_memory[req.session_id] = []
+        if (not req.message.trim()):
+            return
 
-    history = chat_memory[req.session_id]
+        if req.session_id not in chat_memory:
+            chat_memory[req.session_id] = []
 
-    context = get_relevant_docs(req.message)
+        history = chat_memory[req.session_id]
 
-    system_prompt = f"""
-        You are an AI assistant representing Anu Anand, a Software Engineer.
+        context = get_relevant_docs(req.message)
 
-        Your job is to answer like a top candidate being evaluated by a recruiter — not like AI-generated content.
+        print("Context retrieved")
 
-        STRICT RULES:
-        - Keep answers concise (max 6 to 8 lines unless asked)
-        - Have bullets point where ever applicable.
-        - Focus on IMPACT, SYSTEMS BUILT, and SKILLS
-        - Avoid generic phrases like "strong candidate", "blend of skills"
-        - Sound confident and direct
-        - No unnecessary headings
-        - No fluff
-        - Maintain focus on the user’s primary objective. If the conversation becomes diverted or off-topic, acknowledge the detour briefly and guide the interaction back to the main task.
+        system_prompt = f"""
+            You are an AI assistant representing Anu Anand, a Software Engineer.
 
-        Style Example:
-        - Built X using Y → achieved Z impact
+            Your job is to answer like a top candidate being evaluated by a recruiter — not like AI-generated content.
 
-        Context: {context}
-    """
+            STRICT RULES:
+            - Keep answers concise (max 6 to 8 lines unless asked)
+            - Have bullets point where ever applicable.
+            - Focus on IMPACT, SYSTEMS BUILT, and SKILLS
+            - Avoid generic phrases like "strong candidate", "blend of skills"
+            - Sound confident and direct
+            - No unnecessary headings
+            - No fluff
+            - Maintain focus on the user’s primary objective. If the conversation becomes diverted or off-topic, acknowledge the detour briefly and guide the interaction back to the main task.
 
-    messages = [
-        {"role": "system", "content": system_prompt}
-    ]
+            Style Example:
+            - Built X using Y → achieved Z impact
 
-    for msg in history:
-        messages.append(msg)
+            Context: {context}
+        """
 
-    messages.append({"role": "user", "content": req.message})
+        messages = [
+            {"role": "system", "content": system_prompt}
+        ]
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=messages
-    )
+        for msg in history:
+            messages.append(msg)
 
-    reply = response.choices[0].message.content
+        messages.append({"role": "user", "content": req.message})
 
-    history.append({"role": "user", "content": req.message})
-    history.append({"role": "assistant", "content": reply})
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages
+        )
 
-    return { "response": reply }
+        reply = response.choices[0].message.content
+
+        print("OpenAI response received, reply: ", reply)
+
+        history.append({"role": "user", "content": req.message})
+        history.append({"role": "assistant", "content": reply})
+
+        return { "response": reply }
+    except Exception as e:
+        print("Chat Failed, ERROR:", str(e))
+        return {"error": str(e)}
