@@ -46,7 +46,7 @@ def chat(req: ChatRequest):
         print("Chat API called, session_id:", req.session_id)
         print("User message:", req.message)
 
-        if (not req.message.trim()):
+        if (not req.message.strip()):
             return
 
         if req.session_id not in chat_memory:
