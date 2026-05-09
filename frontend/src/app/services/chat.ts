@@ -13,12 +13,12 @@ export interface ChatResponse {
 
 export class ChatService {
 
-  private apiUrl = 'http://127.0.0.1:8000/chat';
+  private apiUrl = 'https://anand-ai-portfolio.onrender.com/chat';
 
   constructor(private http: HttpClient) {}
 
   sendMessage(message: string, sessionId: string) {
-    return this.http.post<any>('http://127.0.0.1:8000/chat', {
+    return this.http.post<any>(this.apiUrl, {
       message,
       session_id: sessionId
     }).pipe(

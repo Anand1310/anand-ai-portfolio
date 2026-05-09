@@ -14,7 +14,7 @@ export class ProfileService {
   constructor(private http: HttpClient) {}
 
   loadProfile() {
-    return this.http.get<any>('http://127.0.0.1:8000/profile').pipe(
+    return this.http.get<any>('https://anand-ai-portfolio.onrender.com/profile').pipe(
       tap((data) => {
         this.profileSubject.next(data);
       }),

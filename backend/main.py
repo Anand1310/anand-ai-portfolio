@@ -37,6 +37,9 @@ def get_profile():
 @app.post("/chat")
 def chat(req: ChatRequest):
 
+    if (not req.message.trim()):
+        return
+
     if req.session_id not in chat_memory:
         chat_memory[req.session_id] = []
 
