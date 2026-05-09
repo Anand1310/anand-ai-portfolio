@@ -8,7 +8,7 @@ from langchain_openai import OpenAIEmbeddings
 def load_documents():
     docs = []
 
-    pdf_loader = PyPDFLoader("data\Anand_Resume.pdf")
+    pdf_loader = PyPDFLoader("data/Anand_Resume.pdf")
     docs.extend(pdf_loader.load())
 
     json_loader = JSONLoader(
@@ -18,7 +18,7 @@ def load_documents():
     )
     docs.extend(json_loader.load())
 
-    text_loader = TextLoader("data\projects.txt")
+    text_loader = TextLoader("data/projects.txt")
     docs.extend(text_loader.load())
 
     return docs
