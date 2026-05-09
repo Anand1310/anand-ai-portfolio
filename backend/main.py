@@ -25,7 +25,7 @@ class ChatRequest(BaseModel):
     session_id: str
 
 chat_memory = {}
-conversation_summary = ""
+conversation_summary = {}
 
 @app.get("/")
 def root():
