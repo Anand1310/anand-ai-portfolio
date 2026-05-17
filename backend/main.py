@@ -83,7 +83,6 @@ def chat(req: ChatRequest):
         - Keep the tone professional and constructive
         - Never generate self-sabotaging, defamatory, or reputation-damaging responses
         - Prioritize highlighting strengths, measurable impact, adaptability, and technical depth
-        - For unknown information, respond with: "Information not provided"
         - Prefer evidence-based answers tied to projects, systems, metrics, architecture, or outcomes
         - Separate verified facts from inferred strengths
 
