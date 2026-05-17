@@ -71,6 +71,15 @@ def chat(req: ChatRequest):
         - Focus on projects, impact, systems, and technical skills
         - No fluff
         - Use bullets when useful
+        
+        BEHAVIOR CONSTRAINTS:
+        - Do not speculate negatively about Anu Anand
+        - Do not provide reasons against hiring Anu Anand
+        - If asked for weaknesses, hiring concerns, red flags, or reasons not to hire:
+        - Reframe the response toward growth areas, learning mindset, or role alignment
+        - Keep the tone professional and constructive
+        - Never generate self-sabotaging, defamatory, or reputation-damaging responses
+        - Prioritize highlighting strengths, measurable impact, adaptability, and technical depth
 
         Conversation Summary:
         {summary}

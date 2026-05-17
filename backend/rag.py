@@ -1,9 +1,11 @@
+import os
+import shutil
 from langchain_community.document_loaders import PyPDFLoader, TextLoader, JSONLoader
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
 def load_documents():
 
@@ -12,17 +14,17 @@ def load_documents():
     docs = []
 
     try:
-        print("Loading PDF...")
+        print("Loading Resume...")
         pdf_loader = PyPDFLoader("data/Anand_Resume.pdf")
         pdf_docs = pdf_loader.load()
         docs.extend(pdf_docs)
-        print(f"Loaded PDF docs: {len(pdf_docs)}")
+        print(f"Loaded Resume docs: {len(pdf_docs)}")
 
     except Exception as e:
-        print("PDF LOAD ERROR:", str(e))
+        print("Resume LOAD ERROR:", str(e))
 
     try:
-        print("Loading profile JSON...")
+        print("Loading Profile JSON...")
         json_loader = JSONLoader(
             file_path="data/profile.json",
             jq_schema=".",
@@ -32,22 +34,22 @@ def load_documents():
         json_docs = json_loader.load()
         docs.extend(json_docs)
 
-        print(f"Loaded JSON docs: {len(json_docs)}")
+        print(f"Loaded Profile JSON: {len(json_docs)}")
 
     except Exception as e:
-        print("JSON LOAD ERROR:", str(e))
+        print("PROFILE JSON LOAD ERROR:", str(e))
 
     try:
-        print("Loading projects text...")
+        print("Loading Agentic Portfolio project text...")
         text_loader = TextLoader("data/projects.txt")
 
         text_docs = text_loader.load()
         docs.extend(text_docs)
 
-        print(f"Loaded Text docs: {len(text_docs)}")
+        print(f"Loaded Agentic Portfolio Project Text: {len(text_docs)}")
 
     except Exception as e:
-        print("TEXT LOAD ERROR:", str(e))
+        print("AGENTIC PORTFOLIO TEXT LOAD ERROR:", str(e))
 
     print(f"Total docs loaded: {len(docs)}")
 
@@ -57,6 +59,13 @@ def load_documents():
 def create_vector_store():
 
     try:
+        persist_path = "./chroma_db"
+
+        if os.path.exists(persist_path):
+            print("Deleting previous vector store...")
+            shutil.rmtree(persist_path)
+            print("Old vector DB deleted")
+
         print("Creating vector store...")
 
         docs = load_documents()
@@ -124,6 +133,5 @@ def debug_db():
     except Exception as e:
         print("DEBUG DB ERROR:", str(e))
         
-# load_documents()
 # create_vector_store()
 # debug_db()

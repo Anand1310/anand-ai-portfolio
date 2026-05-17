@@ -22,7 +22,7 @@ export class ChatService {
       message,
       session_id: sessionId
     }).pipe(
-      timeout(10000), // 10 sec
+      timeout(100000),
       catchError((error) => {
         return throwError(() => error);
       })

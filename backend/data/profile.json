@@ -1,30 +1,37 @@
 {
   "about": {
-    "name": "Anu Anand",
-    "title": "Software Engineer | AI & Full-Stack Developer",
-    "summary": "AI Engineer with ~3 years of experience building scalable, intelligent systems using LLMs, RAG, and full-stack technologies.",
-    "highlights": [
-      "Specialized in Agentic AI systems and LLM-based workflows",
-      "Built automation systems reducing manual effort by up to 70%",
-      "Experienced in full-stack development (Angular, Python, .NET)"
-    ]
+    "name": "Anu Anand Annu",
+    "title": "Software Engineer | Agentic AI & Full-Stack Developer",
+    "summary": "Software Engineer with 2+ years building production Agentic AI systems at GEP Worldwide, processing thousands of global supplier records. Designed LangGraph multi-agent pipelines that cut onboarding from 12 days to 15 minutes and reduced manual effort by 90%. IIT Tirupati CS graduate with hands-on experience in RAG, Azure Document Intelligence, and LLM orchestration at enterprise scale. Seeking AI Engineer roles to architect intelligent automation systems at scale."
   },
   "experience": [
     {
       "company": "GEP Worldwide",
       "role": "Software Engineer",
-      "duration": "2022 - Present",
+      "duration": "Aug 2023 - Present",
       "description": [
-        "Built AI-driven automation for supplier onboarding reducing manual effort by ~70%",
-        "Developed agentic AI workflows using LLM integrations",
-        "Designed scalable backend APIs and frontend interfaces",
-        "Led AI feature releases improving system adoption and reliability"
+        "Architected an end-to-end supplier creation automation pipeline — spanning data auto-fill, multi-format document extraction, multilingual support, and real-time sanctions/adverse media screening — achieving 95% validation accuracy and eliminating 90% of manual effort across 5,000+ supplier records.",
+        "Architected a LangGraph multi-agent orchestration system with persistent memory, cross-agent context sharing, and real-time Brave Search API integration — compressing supplier onboarding from 12 days to 15 minutes (97% reduction) across 5,000+ global suppliers.",
+        "Designed and deployed an Intelligent Document Processing (IDP) Agent using Azure Document Intelligence — parsing PDFs, scanned images, and structured forms with 96% field-extraction accuracy, eliminating 95% of manual data-entry.",
+        "Built a Supplier Assistant RAG Agent combining retrieval-augmented guidance, real-time third-party API tools, and contextual supplier data — reducing support team dependency by ~60%.",
+        "Led a 4-engineer team — owning sprint planning, risk mitigation, and cross-functional stakeholder alignment — achieving 100% on-time delivery with zero production regressions.",
+        "Led Supplier AI releases with zero production regressions, owning end-to-end validation, sanity checks, and delivery timelines across cross-functional teams.",
+        "Reduced development effort by 60% through strategic adoption of AI-powered development tools and workflow automation, accelerating feature delivery and improving team productivity.",
+        "Created Confluence documentation to support AI adoption and conducted KT sessions to enable faster onboarding and reduce team ramp-up time."
+      ]
+    },
+    {
+      "company": "GEP Worldwide",
+      "role": "Software Engineer Intern",
+      "duration": "May 2022 - Jul 2022",
+      "description": [
+        "Conducted R&D on translation/transliteration APIs; built optimized pipelines using Python multiprocessing and Azure Cognitive Services, automating multilingual workflows and reducing manual effort by ~90%."
       ]
     }
   ],
   "projects": [
     {
-      "title": "AI Portfolio Assistant",
+      "title": "AI Portfolio — Agentic AI Platform",
       "description": "Agentic AI-powered portfolio assistant with RAG, contextual memory, and intelligent query handling",
       "highlights": [
         "Built full-stack application using Angular, FastAPI, and LangGraph",
@@ -32,36 +39,199 @@
         "Enabled memory-aware conversational Q&A with intelligent context handling",
         "Handled negative inputs, tool failures, and structured knowledge retrieval for reliable AI interactions"
       ],
-      "tech": ["Angular", "FastAPI", "LangChain", "ChromaDB"],
-      "github": "",
-      "live": ""
+      "tech": [
+        "Angular",
+        "FastAPI",
+        "LangChain",
+        "ChromaDB",
+        "OpenAI API",
+        "RAG",
+        "REST API",
+        "Vercel",
+        "Render"
+      ],
+      "github": "https://github.com/Anand1310/anand-ai-portfolio",
+      "live": "https://anand-ai-portfolio.vercel.app/"
+    },
+    {
+      "title": "Deep RL for Automated Portfolio Management",
+      "description": "Deep reinforcement learning for optimized stock portfolio management strategies.",
+      "highlights": [
+        "Implemented and benchmarked 6 deep reinforcement learning algorithms — PPO, A2C, DDPG, TD3, SAC, and a novel Average Reward TRPO — for stock portfolio management on DJIA and NIFTY 50 datasets.",
+        "Developed an Average Reward TRPO framework that outperformed all discounted-reward baseline models in cumulative return across multiple market environments.",
+        "Validated model performance through extensive back-testing and live paper trading using the Alpaca API."
+      ],
+      "tech": [
+        "Python",
+        "Deep Reinforcement Learning",
+        "Portfolio Optimization",
+        "Backtesting",
+        "Alpaca API"
+      ],
+      "documentation": "https://drive.google.com/file/d/1yPXK_I7g1BV3s1YhJTwa5nNvzZh70cQP/view"
     }
   ],
   "skills": [
     {
-      "category": "AI/ML",
+      "category": "Languages",
       "items": [
-        { "name": "RAG", "type": "brain" },
-        { "name": "LangChain", "type": "link" },
-        { "name": "LangGraph", "type": "graph" },
-        { "name": "LLMs", "type": "chatBubble" }
+        {
+          "name": "Python",
+          "type": "python"
+        },
+        {
+          "name": "C#",
+          "type": "csharp"
+        },
+        {
+          "name": "JavaScript",
+          "type": "javascript"
+        },
+        {
+          "name": "TypeScript",
+          "type": "typescript"
+        },
+        {
+          "name": "SQL",
+          "type": "sql"
+        }
       ]
     },
     {
-      "category": "Frontend",
+      "category": "Web & Tools",
       "items": [
-        { "name": "Angular", "type": "angular" },
-        { "name": "TypeScript", "type": "typescript" },
-        { "name": "HTML", "type": "html5" },
-        { "name": "CSS", "type": "css3" }
+        {
+          "name": "Angular",
+          "type": "angular"
+        },
+        {
+          "name": "REST APIs",
+          "type": "restapi"
+        },
+        {
+          "name": "Docker",
+          "type": "docker"
+        },
+        {
+          "name": "Git",
+          "type": "git"
+        },
+        {
+          "name": "Postman",
+          "type": "postman"
+        },
+        {
+          "name": "CI/CD",
+          "type": "cicd"
+        }
+      ]
+    },
+    {
+      "category": "Cloud & Azure",
+      "items": [
+        {
+          "name": "Azure Document Intelligence",
+          "type": "azure"
+        },
+        {
+          "name": "Cognitive Services",
+          "type": "cognitiveservices"
+        },
+        {
+          "name": "Azure Functions",
+          "type": "azurefunctions"
+        },
+        {
+          "name": "Logic Apps",
+          "type": "logicapps"
+        }
+      ]
+    },
+    {
+      "category": "AI / LLM Systems",
+      "items": [
+        {
+          "name": "Agentic AI",
+          "type": "agenticai"
+        },
+        {
+          "name": "LangGraph",
+          "type": "langgraph"
+        },
+        {
+          "name": "LangChain",
+          "type": "langchain"
+        },
+        {
+          "name": "LangSmith",
+          "type": "langsmith"
+        },
+        {
+          "name": "RAG",
+          "type": "rag"
+        },
+        {
+          "name": "OpenAI API",
+          "type": "openai"
+        },
+        {
+          "name": "MCP",
+          "type": "mcp"
+        },
+        {
+          "name": "Prompt Engineering",
+          "type": "promptengineering"
+        },
+        {
+          "name": "Vector Databases",
+          "type": "vectordb"
+        }
+      ]
+    },
+    {
+      "category": "Databases",
+      "items": [
+        {
+          "name": "MySQL",
+          "type": "mysql"
+        },
+        {
+          "name": "SQL Server",
+          "type": "sqlserver"
+        },
+        {
+          "name": "MongoDB",
+          "type": "mongodb"
+        },
+        {
+          "name": "Elasticsearch",
+          "type": "elasticsearch"
+        }
       ]
     },
     {
       "category": "Backend",
       "items": [
-        { "name": "Python", "type": "python" },
-        { "name": "FastAPI", "type": "fastapi" },
-        { "name": ".NET", "type": "dotnet" }
+        {
+          "name": "FastAPI",
+          "type": "fastapi"
+        },
+        {
+          "name": "ASP.NET Core",
+          "type": "dotnet"
+        },
+        {
+          "name": "Node.js",
+          "type": "nodejs"
+        },
+        {
+          "name": "Microservices",
+          "type": "microservices"
+        },
+        {
+          "name": "Event-Driven Architecture",
+          "type": "eventdriven"
+        }
       ]
     }
   ],
@@ -89,14 +259,14 @@
   ],
   "achievements": [
     {
-        "name": "Certificate of Appreciation - GEP",
-        "link": "https://drive.google.com/file/d/16P5-a_ea1J6wHTc5zLVBqOG068tXNkpt/view?usp=drive_link",
-        "date": "2025"
+      "name": "GEP Kudos Catalyst Award",
+      "link": "https://drive.google.com/file/d/16P5-a_ea1J6wHTc5zLVBqOG068tXNkpt/view?usp=drive_link",
+      "date": "2025"
     },
     {
-        "name": "Earned Elite + Silver in NLP Course (NPTEL)",
-        "link": "https://drive.google.com/file/d/1ilVQTzLhQ9p5FaGQGCn__4aj719Onw_6/view?usp=drive_link",
-        "date": "2021"
+      "name": "NPTEL NLP — Elite + Silver",
+      "link": "https://drive.google.com/file/d/1ilVQTzLhQ9p5FaGQGCn__4aj719Onw_6/view?usp=drive_link",
+      "date": "2021"
     }
   ]
 }
