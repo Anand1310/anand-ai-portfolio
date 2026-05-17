@@ -10,14 +10,13 @@
       "role": "Software Engineer",
       "duration": "Aug 2023 - Present",
       "description": [
-        "Architected an end-to-end supplier creation automation pipeline — spanning data auto-fill, multi-format document extraction, multilingual support, and real-time sanctions/adverse media screening — achieving 95% validation accuracy and eliminating 90% of manual effort across 5,000+ supplier records.",
-        "Architected a LangGraph multi-agent orchestration system with persistent memory, cross-agent context sharing, and real-time Brave Search API integration — compressing supplier onboarding from 12 days to 15 minutes (97% reduction) across 5,000+ global suppliers.",
-        "Designed and deployed an Intelligent Document Processing (IDP) Agent using Azure Document Intelligence — parsing PDFs, scanned images, and structured forms with 96% field-extraction accuracy, eliminating 95% of manual data-entry.",
-        "Built a Supplier Assistant RAG Agent combining retrieval-augmented guidance, real-time third-party API tools, and contextual supplier data — reducing support team dependency by ~60%.",
-        "Led a 4-engineer team — owning sprint planning, risk mitigation, and cross-functional stakeholder alignment — achieving 100% on-time delivery with zero production regressions.",
-        "Led Supplier AI releases with zero production regressions, owning end-to-end validation, sanity checks, and delivery timelines across cross-functional teams.",
-        "Reduced development effort by 60% through strategic adoption of AI-powered development tools and workflow automation, accelerating feature delivery and improving team productivity.",
-        "Created Confluence documentation to support AI adoption and conducted KT sessions to enable faster onboarding and reduce team ramp-up time."
+        "Architected a LangGraph-based multi-agent supplier onboarding platform with persistent memory, shared agent context, and real-time Brave Search integration - reducing onboarding time from 12 days to 15 minutes across 5,000+ global suppliers.",
+        "Built an end-to-end supplier automation pipeline for data auto-fill, multilingual document extraction, and sanctions/adverse-media screening - achieving 95% validation accuracy and eliminating 90% of manual effort across 5,000+ supplier records.",
+        "Designed and deployed an AI-powered Intelligent Document Processing (IDP) system using Azure Document Intelligence to parse PDFs, scanned documents, and structured forms with 96% extraction accuracy, significantly reducing manual data entry.",
+        "Developed a Supplier Assistant RAG agent integrating contextual supplier data and third-party APIs - reducing support dependency by ~60% through retrieval-augmented guidance and real-time assistance.",
+        "Led a 4-engineer team across sprint planning, release management, risk mitigation, and cross-functional delivery - achieving 100% on-time releases with zero production regressions.",
+        "Improved engineering productivity by 60% through AI-assisted development workflows, automation tooling, and internal enablement initiatives, accelerating feature delivery across teams.",
+        "Created technical documentation and conducted knowledge-transfer sessions to streamline AI adoption, onboarding, and team ramp-up."
       ]
     },
     {
@@ -31,7 +30,7 @@
   ],
   "projects": [
     {
-      "title": "AI Portfolio — Agentic AI Platform",
+      "title": "AI Portfolio - Agentic AI Platform",
       "description": "Agentic AI-powered portfolio assistant with RAG, contextual memory, and intelligent query handling",
       "highlights": [
         "Built full-stack application using Angular, FastAPI, and LangGraph",
@@ -57,7 +56,7 @@
       "title": "Deep RL for Automated Portfolio Management",
       "description": "Deep reinforcement learning for optimized stock portfolio management strategies.",
       "highlights": [
-        "Implemented and benchmarked 6 deep reinforcement learning algorithms — PPO, A2C, DDPG, TD3, SAC, and a novel Average Reward TRPO — for stock portfolio management on DJIA and NIFTY 50 datasets.",
+        "Implemented and benchmarked 6 deep reinforcement learning algorithms - PPO, A2C, DDPG, TD3, SAC, and a novel Average Reward TRPO - for stock portfolio management on DJIA and NIFTY 50 datasets.",
         "Developed an Average Reward TRPO framework that outperformed all discounted-reward baseline models in cumulative return across multiple market environments.",
         "Validated model performance through extensive back-testing and live paper trading using the Alpaca API."
       ],
@@ -264,7 +263,7 @@
       "date": "2025"
     },
     {
-      "name": "NPTEL NLP — Elite + Silver",
+      "name": "NPTEL NLP - Elite + Silver",
       "link": "https://drive.google.com/file/d/1ilVQTzLhQ9p5FaGQGCn__4aj719Onw_6/view?usp=drive_link",
       "date": "2021"
     }

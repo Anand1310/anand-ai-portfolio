@@ -13,7 +13,7 @@ export interface ChatResponse {
 
 export class ChatService {
 
-  private apiUrl = 'https://anand-ai-portfolio.onrender.com/chat';
+  private apiUrl = 'http://127.0.0.1:8000/chat';
 
   constructor(private http: HttpClient) {}
 

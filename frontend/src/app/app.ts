@@ -10,6 +10,7 @@ import { Header } from './shared/header/header';
 import { Footer } from './shared/footer/footer';
 import { CommonModule } from '@angular/common';
 import { ProfileService } from './services/profile.service';
+import { ChatService } from './services/chat';
 import { finalize } from 'rxjs/operators';
 import { Loader } from './shared/loader/loader';
 import { Failure } from './shared/failure/failure';
@@ -47,6 +48,7 @@ export class App implements OnInit, AfterViewInit {
 
   constructor(
     private profileService: ProfileService,
+    private chatService: ChatService,
     private cdr: ChangeDetectorRef
   ) { }
 
@@ -61,6 +63,7 @@ export class App implements OnInit, AfterViewInit {
   loadProfile() {
     this.profileLoading = true;
     this.profileLoadFailed = false;
+    this.warmupAISession();
     this.profileService.loadProfile()
       .pipe(
         finalize(() => {
@@ -76,6 +79,14 @@ export class App implements OnInit, AfterViewInit {
         this.profileLoading = false;
         this.loader.stopLoadingMessages();
         this.cdr.detectChanges();
+      });
+  }
+
+  warmupAISession() {
+    this.chatService.sendMessage("Hello", "warmup")
+      .subscribe({
+        next: () => console.log('AI session warmed up'),
+        error: (err) => console.error(err)
       });
   }
 

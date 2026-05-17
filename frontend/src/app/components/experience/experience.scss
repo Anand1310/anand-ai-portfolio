@@ -58,8 +58,9 @@ ul {
 }
 
 li {
-  margin-bottom: 8px;
   color: var(--text-muted);
+  text-align: justify;
+  font-size: small;
 }
 
 @media (max-width: 768px) {
