@@ -1,4 +1,4 @@
-import { Component, signal, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, signal, OnInit, AfterViewInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { About } from './components/about/about';
 import { Skills } from './components/skills/skills';
 import { AchievementsCertifications } from './components/achievements-certification/achievements-certification';
@@ -11,6 +11,8 @@ import { Footer } from './shared/footer/footer';
 import { CommonModule } from '@angular/common';
 import { ProfileService } from './services/profile.service';
 import { finalize } from 'rxjs/operators';
+import { Loader } from './shared/loader/loader';
+import { Failure } from './shared/failure/failure';
 
 @Component({
   selector: 'app-root',
@@ -25,12 +27,18 @@ import { finalize } from 'rxjs/operators';
     Projects,
     ChatOverlay,
     ContactModal,
-    Footer
+    Footer,
+    Loader,
+    Failure
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App implements OnInit {
+export class App implements OnInit, AfterViewInit {
+
+  @ViewChild(Loader)
+  loader!: Loader;
+
   protected readonly title = signal('myportfolio');
   showChat = false;
   showContact = false;
@@ -40,24 +48,35 @@ export class App implements OnInit {
   constructor(
     private profileService: ProfileService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) { }
 
   ngOnInit() {
+    this.loadProfile();
+  }
+
+  ngAfterViewInit() {
+    this.loader.startLoadingMessages();
+  }
+
+  loadProfile() {
     this.profileLoading = true;
+    this.profileLoadFailed = false;
     this.profileService.loadProfile()
-    .pipe(
-      finalize(() => {
+      .pipe(
+        finalize(() => {
+          this.profileLoading = false;
+          this.loader.stopLoadingMessages();
+          this.cdr.detectChanges();
+        })
+      )
+      .subscribe((success) => {
+        if (!success) {
+          this.profileLoadFailed = true;
+        }
         this.profileLoading = false;
+        this.loader.stopLoadingMessages();
         this.cdr.detectChanges();
-      })
-    )
-    .subscribe((success) => {
-      if (!success) {
-        this.profileLoadFailed = true;
-      }
-      this.profileLoading = false;
-      this.cdr.detectChanges();
-    });
+      });
   }
 
   openChat() {

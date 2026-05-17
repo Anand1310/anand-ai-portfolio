@@ -25,12 +25,12 @@
   "projects": [
     {
       "title": "AI Portfolio Assistant",
-      "description": "AI-powered portfolio with RAG-based assistant and session memory",
+      "description": "Agentic AI-powered portfolio assistant with RAG, contextual memory, and intelligent query handling",
       "highlights": [
-        "Built using Angular + FastAPI",
-        "Implemented RAG pipeline using vector search",
-        "Enabled contextual Q&A about experience and projects",
-        "Designed structured knowledge base for accurate retrieval"
+        "Built full-stack application using Angular, FastAPI, and LangGraph",
+        "Implemented RAG pipelines with vector database retrieval for context-aware responses",
+        "Enabled memory-aware conversational Q&A with intelligent context handling",
+        "Handled negative inputs, tool failures, and structured knowledge retrieval for reliable AI interactions"
       ],
       "tech": ["Angular", "FastAPI", "LangChain", "ChromaDB"],
       "github": "",

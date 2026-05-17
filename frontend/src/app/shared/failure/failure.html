@@ -1,0 +1,34 @@
+<section class="failure-state">
+    <div class="failure-card">
+        <div class="failure-icon">
+            ⚠
+        </div>
+        <h2>Unable to Load Portfolio</h2>
+        <p class="failure-description">
+            The AI portfolio services are currently unavailable or taking longer than expected to respond.
+        </p>
+        <div class="failure-details">
+            <div class="detail-item">
+                <span class="label">Possible Cause</span>
+                <span class="value">
+                    Free-tier backend cold start or temporary server inactivity
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="label">What This Demonstrates</span>
+                <span class="value">
+                    The portfolio uses a live AI backend instead of static mock responses
+                </span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Recommended Action</span>
+                <span class="value">
+                    Please click the retry button below to re-establish connection with the AI backend services.
+                </span>
+            </div>
+        </div>
+        <button (click)="retryLoad()" class="retry-btn">
+            Retry Connection
+        </button>
+    </div>
+</section>

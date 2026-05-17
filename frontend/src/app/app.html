@@ -1,14 +1,13 @@
-<app-header></app-header>
-
 @if (profileLoading) {
-  <p>Loading profile...</p>
+  <app-loader></app-loader>
 }
 
 @if (profileLoadFailed) {
-  <p>Failed to load profile.</p>
+  <app-failure (reloadProfile)="loadProfile()"></app-failure>
 }
 
 @if (!profileLoading && !profileLoadFailed) {
+  <app-header></app-header>
   <section id="about">
     <app-about 
       (openChat)="openChat()" 
